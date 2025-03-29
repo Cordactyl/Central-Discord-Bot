@@ -1,0 +1,5 @@
+py-cord
+audioop-lts
+aiohttp
+asyncio
+python-dotenv

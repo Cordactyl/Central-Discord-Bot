@@ -1,0 +1,8 @@
+{
+  "appeals": {
+    "i_cannot_dm_you": "Es scheint so, als kann ich dir keine DM schicken. Bitte sende mir eine private Nachricht, damit ich dich über deinen Entbannungsantrag auf dem Laufenden halten kann.",
+    "error_generating_response": "Fehler. Es konnte kein Link erstellt werden. Bitte versuche es später noch einmal."
+  },
+  "maintenance": "Der Server wird derzeit gewartet. Bitte versuche es später noch einmal.",
+  "api_error": "Cordactyl API-Fehler. Bitte versuche es später noch einmal."
+}

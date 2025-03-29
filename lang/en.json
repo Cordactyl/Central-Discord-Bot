@@ -1,0 +1,8 @@
+{
+  "appeals": {
+    "i_cannot_dm_you": "It seems like i can't send you a DM. Please send me a DM so that I can keep you informed about your appeal.",
+    "error_generating_response": "Error. Couldn't generate a response. Please try again later."
+  },
+  "maintenance": "The server is currently undergoing maintenance. Please try again later.",
+  "api_error": "Cordactyl API error. Please try again later."
+}
