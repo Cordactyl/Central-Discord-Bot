@@ -61,10 +61,16 @@ int main() {
 
         if (dpp::run_once<struct startup>()) {
             co_await acknowledge.fetch_current_application();
+            co_await acknowledge.send_acknowledgement(processed_messages, true);
             if (!getenv("IS_CENTRAL")) {
                 acknowledge.edit_current_application();
             }
-            bot.global_command_create(dpp::slashcommand("appeal", "Create an appeal", bot.me.id));
+
+            auto appeal_command = dpp::slashcommand("appeal", "Create an appeal", bot.me.id);
+            for (auto &translation : cordactyl::translations) {
+                appeal_command.add_localization(translation.first, cordactyl::_("appeal", translation.first), cordactyl::_("Create an appeal", translation.first));
+            }
+            bot.global_bulk_command_create({appeal_command});
 
             acknowledge_timer = bot.start_timer([](const dpp::timer on_tick) -> dpp::task<void> {
                 co_await acknowledge.send_acknowledgement(processed_messages);

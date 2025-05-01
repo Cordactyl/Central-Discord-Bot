@@ -9,3 +9,4 @@
     {"Accept", "application/json"}, \
     {"User-Agent", "cordactyl-discord-bot/2.0"} \
 }
+#define EXIT_INVALID_API_TOKEN 24

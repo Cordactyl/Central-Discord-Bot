@@ -3,5 +3,7 @@
     "Error. Couldn't generate a response. Please try again later.": "Fehler. Es konnte kein Link erstellt werden. Bitte versuche es später noch einmal.",
     "The server is currently undergoing maintenance. Please try again later.": "Der Server wird derzeit gewartet. Bitte versuche es später noch einmal.",
     "Cordactyl API error. Please try again later.": "Cordactyl API-Fehler. Bitte versuche es später noch einmal.",
-    "You must be in a guild to use this command.": "Du kannst diesen Befehl nur in einem Server ausführen."
+    "You must be in a guild to use this command.": "Du kannst diesen Befehl nur in einem Server ausführen.",
+    "appeal": "entbannungsantrag",
+    "Create an appeal": "Erstelle einen Entbannungsantrag"
 }

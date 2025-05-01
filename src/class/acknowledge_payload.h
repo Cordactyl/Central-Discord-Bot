@@ -18,7 +18,7 @@ namespace cordactyl
 
         nlohmann::json pull_payload();
 
-        dpp::task<void> send_acknowledgement(processed_message_cache &processed_messages);
+        dpp::task<void> send_acknowledgement(processed_message_cache &processed_messages, bool is_startup = false);
 
         dpp::task<void> fetch_current_application();
 

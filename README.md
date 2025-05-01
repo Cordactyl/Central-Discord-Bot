@@ -10,7 +10,7 @@ It can be used for individual tenants.
 #### Build requirements
 
 - [cmake](https://cmake.org/) (version 3.15+)
-- [g++](https://gcc.gnu.org) (version 8 or higher)
+- [g++](https://gcc.gnu.org) (version 14 or higher)
 
 #### Included dependencies (in the `/libs` folder)
 
@@ -47,7 +47,7 @@ make -j8
 
 Tip: Replace the number after -j with the number of CPU cores available on your machine for optimal performance.
 
-After the build process completes, an executable will be generated. You can execute this executable to start the Discord bot.
+After the build process completes, an executable named `Cordactyl_Bot` will be generated. You can execute this executable to start the Discord bot.
 
 Before running the bot, make sure to set the following environment variables:
 - `BOT_TOKEN`
@@ -64,11 +64,15 @@ Description=Cordactyl Discord-Bot
 After=network.target
 
 [Service]
+Type=simple
 WorkingDirectory=/path_to_project
 ExecStart=/build/Cordactyl_Bot
-Type=simple
+Environment="BOT_TOKEN=paste_your_discord_bot_token_here"
+Environment="API_TOKEN=paste_your_cordactyl_api_token_here"
 Restart=always
-# User=cordactyl # If you have setup a custom user for the discord-bot
+# exits with code 24 on invalid api token
+RestartPreventExitStatus=24
+User=cordactyl # If you have setup a custom user for the discord-bot
 
 [Install]
 WantedBy=multi-user.target

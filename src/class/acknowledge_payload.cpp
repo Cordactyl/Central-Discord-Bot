@@ -34,9 +34,9 @@ namespace cordactyl
         return result;
     }
 
-    dpp::task<void> acknowledge_payload::send_acknowledgement(processed_message_cache &processed_messages) {
+    dpp::task<void> acknowledge_payload::send_acknowledgement(processed_message_cache &processed_messages, bool is_startup) {
         dpp::http_request_completion_t response = co_await bot.co_request(
-                std::string(getenv("API_URL")) + "/acknowledge",
+                std::string(getenv("API_URL")) + "/acknowledge" + (is_startup ? "?startup=true" : ""),
                 dpp::m_post,
                 this->pull_payload().dump(),
                 "application/json",
@@ -44,6 +44,9 @@ namespace cordactyl
             );
         if (response.status == 401) {
             bot.log(dpp::ll_error, "Acknowledge failed. Invalid API_TOKEN");
+            if (!getenv("IS_CENTRAL")) {
+                exit(EXIT_INVALID_API_TOKEN);
+            }
         } else if (response.status >= 300 || response.error != dpp::http_error::h_success) {
             bot.log(dpp::ll_error, "Acknowledge failed. Error: " + std::to_string(response.error) + " Status: " + std::to_string(response.status) + "\nResponse:\n" + response.body);
         }
