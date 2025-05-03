@@ -86,10 +86,15 @@ namespace cordactyl
                 nlohmann::json j;
                 j["id"] = role_id;
                 j["name"] = role->name;
-                std::stringstream stream;
-                stream << std::hex << role->colour;
-                std::string hex_color_str( stream.str() );
-                j["color"] = "#" + hex_color_str;
+                if (role->colour) {
+                    std::stringstream stream;
+                    stream << std::hex << role->colour;
+                    std::string hex_color_str( stream.str() );
+                    if (hex_color_str.size() < 6) {
+                        hex_color_str.insert(hex_color_str.begin(), 6 - hex_color_str.size(), '0');
+                    }
+                    j["color"] = "#" + hex_color_str;
+                }
                 roles.push_back(j);
             }
         }

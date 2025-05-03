@@ -19,6 +19,9 @@ dpp::timer acknowledge_timer; //!< Must be globally because of the signal handle
 cordactyl::acknowledge_payload acknowledge; //!< Must be globally because of the signal handler
 
 int main() {
+    // disable stdout buffering
+    std::cout << std::unitbuf;
+
     if (getenv("BOT_TOKEN") == nullptr) {
         std::cerr << "Missing environment variable BOT_TOKEN. You can get one from the discord developer portal." << std::endl;
         return EXIT_FAILURE;

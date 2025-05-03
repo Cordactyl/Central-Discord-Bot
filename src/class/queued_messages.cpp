@@ -98,7 +98,7 @@ namespace cordactyl
         bot.request(
             std::string(getenv("API_URL")) + "/processed-queued-messages",
             dpp::m_post,
-            [this, used_queued_messages, &bot, j](const dpp::http_request_completion_t &response) {
+            [this, used_queued_messages, &bot](const dpp::http_request_completion_t &response) {
                 if (response.status == 401) {
                     bot.log(dpp::ll_error, "Failed to report back queued messages. Invalid API_TOKEN");
                 } else if (response.status >= 300 || response.error != dpp::h_success) {
