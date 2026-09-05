@@ -24,7 +24,7 @@ It can be used for individual tenants.
 
 ### Create a Discord-Bot
 Go to the [discord developer portal](https://discord.com/developers/applications) and create a Discord-Bot.
-The Discord Bot needs at least the **Server Members** intent along with the following permissions:
+The Discord Bot needs at least the following permissions:
 - Send Messages
 - Embed Links
 

@@ -10,7 +10,7 @@
 
 cordactyl::processed_message_cache processed_messages;
 
-dpp::cluster bot(getenv("BOT_TOKEN") ? getenv("BOT_TOKEN") : "", dpp::i_guilds | dpp::i_guild_members | dpp::i_direct_messages); //!< Must be globally because of the signal handler
+dpp::cluster bot(getenv("BOT_TOKEN") ? getenv("BOT_TOKEN") : "", dpp::i_guilds | dpp::i_direct_messages); //!< Must be globally because of the signal handler
 
 dpp::timer acknowledge_timer; //!< Must be globally because of the signal handler
 
