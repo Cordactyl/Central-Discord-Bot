@@ -7,6 +7,6 @@
 #define API_HEADERS { \
     {"Authorization", "Bearer " + std::string(getenv("API_TOKEN") ? getenv("API_TOKEN") : "")}, \
     {"Accept", "application/json"}, \
-    {"User-Agent", "cordactyl-discord-bot/2.0"} \
+    {"User-Agent", "cordactyl-discord-bot/2.1"} \
 }
 #define EXIT_INVALID_API_TOKEN 24
